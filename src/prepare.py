@@ -2,11 +2,13 @@ import yaml
 import pandas as pd
 from sklearn.model_selection import train_test_split
 
-params = yaml.safe_load(open("params.yaml"))["prepare"]
+params = yaml.safe_load(open("params.yaml"))
 
-columns_to_drop = params["columns_to_drop"]
-test_size = params["test_size"]
+prepare_stage_params = params["prepare"]
+
 seed = params["seed"]
+columns_to_drop = prepare_stage_params["columns_to_drop"]
+test_size = prepare_stage_params["test_size"]
 
 df = pd.read_csv("data/raw.csv")
 
