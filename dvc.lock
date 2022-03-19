@@ -1,0 +1,21 @@
+schema: '2.0'
+stages:
+  prepare:
+    cmd: python src/prepare.py
+    deps:
+    - path: data/raw.csv
+      md5: 7321aa9a1e24a9e139f42124f736b415
+      size: 684858
+    - path: src/prepare.py
+      md5: 45d3824d0ff6fea91d19a843a001c1a1
+      size: 663
+    params:
+      params.yaml:
+        seed: 1337
+    outs:
+    - path: data/test.csv
+      md5: 3ff50bf436d9828874e22d2f5d66c190
+      size: 155747
+    - path: data/train.csv
+      md5: 26aa741d2ba2653231e062095864bbbb
+      size: 363394
