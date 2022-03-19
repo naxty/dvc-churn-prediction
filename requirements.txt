@@ -1,0 +1,7 @@
+pandas
+seaborn
+scikit-learn
+scipy
+dvc==2.9.5
+xgboost
+catboost

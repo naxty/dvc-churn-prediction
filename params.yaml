@@ -1,0 +1,13 @@
+prepare:
+  test_size: 0.30
+  seed: 1337
+  columns_to_drop:
+    - Gender
+    - Age
+    - Surname
+preprocess:
+  seed: 1337
+train:
+  seed: 1337
+evaluate:
+  seed: 1337
