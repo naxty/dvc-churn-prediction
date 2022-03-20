@@ -18,3 +18,19 @@ stages:
     outs:
     - data/test_processed.csv
     - data/train_processed.csv
+  xgboost_training:
+    cmd: python src/xgboost_train.py
+    deps:
+    - data/train_processed.csv
+    - src/xgboost_train.py
+    outs:
+    - models/xgboost.joblib
+  xgboost_evaluation:
+    cmd: python src/evaluate.py models/xgboost.joblib
+    deps:
+    - data/test_processed.csv
+    - src/evaluate.py
+    metrics:
+    - metrics.json
+    plots:
+    - plots

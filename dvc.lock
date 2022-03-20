@@ -38,3 +38,33 @@ stages:
     - path: data/train_processed.csv
       md5: adbf669fb79b1974176ea954d5340cd3
       size: 1053043
+  xgboost_training:
+    cmd: python src/xgboost_train.py
+    deps:
+    - path: data/train_processed.csv
+      md5: adbf669fb79b1974176ea954d5340cd3
+      size: 1053043
+    - path: src/xgboost_train.py
+      md5: e111c68c34afc5300c87d5e81e913458
+      size: 274
+    outs:
+    - path: models/xgboost.joblib
+      md5: c4c5114703cd04b147ca523292da96f5
+      size: 435996
+  xgboost_evaluation:
+    cmd: python src/evaluate.py models/xgboost.joblib
+    deps:
+    - path: data/test_processed.csv
+      md5: 39d1a9d83f00fbab1e0a72c86a1dec77
+      size: 451531
+    - path: src/evaluate.py
+      md5: 7c5cbc246e668ea0bbb1ee9b44813ba3
+      size: 1255
+    outs:
+    - path: metrics.json
+      md5: bbc2e8b8b9a47de5ba0a738e542ba40f
+      size: 57
+    - path: plots
+      md5: d34a2be2500579b3d8c7823a564838d1.dir
+      size: 73496
+      nfiles: 3
