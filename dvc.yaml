@@ -9,3 +9,12 @@ stages:
     outs:
     - data/test.csv
     - data/train.csv
+  preprocess:
+    cmd: python src/preprocess.py
+    deps:
+    - data/test.csv
+    - data/train.csv
+    - src/preprocess.py
+    outs:
+    - data/test_processed.csv
+    - data/train_processed.csv

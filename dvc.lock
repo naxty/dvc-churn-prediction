@@ -19,3 +19,22 @@ stages:
     - path: data/train.csv
       md5: 26aa741d2ba2653231e062095864bbbb
       size: 363394
+  preprocess:
+    cmd: python src/preprocess.py
+    deps:
+    - path: data/test.csv
+      md5: 3ff50bf436d9828874e22d2f5d66c190
+      size: 155747
+    - path: data/train.csv
+      md5: 26aa741d2ba2653231e062095864bbbb
+      size: 363394
+    - path: src/preprocess.py
+      md5: c03f208d9b2102c300fee3a33568dd2f
+      size: 1675
+    outs:
+    - path: data/test_processed.csv
+      md5: 39d1a9d83f00fbab1e0a72c86a1dec77
+      size: 451531
+    - path: data/train_processed.csv
+      md5: adbf669fb79b1974176ea954d5340cd3
+      size: 1053043
